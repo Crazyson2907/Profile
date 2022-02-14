@@ -5,6 +5,6 @@ import retrofit2.http.Headers
 
 interface Api {
     @GET("users")
-    @Headers("Authorization : token some random token for now")
+    @Headers("Authorization : ")
     fun getUser()
 }
