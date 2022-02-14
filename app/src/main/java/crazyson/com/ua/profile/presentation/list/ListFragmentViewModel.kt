@@ -1,4 +1,6 @@
 package crazyson.com.ua.profile.presentation.list
 
-class ListFragmentViewModel {
+import androidx.lifecycle.ViewModel
+
+class ListFragmentViewModel : ViewModel() {
 }
