@@ -1,5 +1,6 @@
 package crazyson.com.ua.profile.data
 
+import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import com.google.gson.annotations.SerializedName
 
@@ -41,4 +42,4 @@ data class User(
     val type: String,
     @SerializedName("site_admin")
     val siteAdmin: Boolean = false
-)
+) : Parcelable
