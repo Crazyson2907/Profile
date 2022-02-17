@@ -30,6 +30,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildFeatures{
+        dataBinding = true
         viewBinding = true
     }
     kotlinOptions {
@@ -60,4 +61,6 @@ dependencies {
     //navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
+
+    kapt "com.android.databinding:compiler:3.2.0-alpha10"
 }
