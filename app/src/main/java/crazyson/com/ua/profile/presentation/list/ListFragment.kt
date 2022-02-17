@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import crazyson.com.ua.profile.databinding.FragmentListBinding
+import crazyson.com.ua.profile.presentation.adapters.UserListAdapter
 
 class ListFragment : Fragment() {
 
+    private lateinit var adapter : UserListAdapter
     private val viewModel: ListFragmentViewModel by lazy {
         ViewModelProvider(this)[ListFragmentViewModel::class.java]
     }
@@ -22,6 +25,12 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentListBinding.inflate(inflater)
+
+        binding.rvUsers.layoutManager = LinearLayoutManager(context)
+        binding.rvUsers.setHasFixedSize(true)
+        binding.rvUsers.adapter = UserListAdapter(UserListAdapter.OnClickListener {
+            viewModel.displayUsersDetails(it)
+        })
 
         viewModel.navigateToSelectedUser.observe(viewLifecycleOwner, Observer {
             if (null != it) {
