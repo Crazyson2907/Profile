@@ -2,44 +2,37 @@ package crazyson.com.ua.profile.data
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 @Parcelize
 data class User(
-    @SerializedName("login")
+    @Json(name = "login")
     val login: String,
-    @SerializedName("id")
+    @Json(name = "id")
     val id: Int,
-    @SerializedName("node_id")
     val nodeId: String = "",
-    @SerializedName("avatar_url")
+    @Json(name = "avatar_url")
     val avatarUrl: String,
-    @SerializedName("gravatar_id")
+    @Transient
     val gravatarId: String,
-    @SerializedName("url")
+    @Json(name = "url")
     val url: String,
-    @SerializedName("html_url")
     val htmlUrl: String,
-    @SerializedName("followers_url")
+    @Json(name = "followers_url")
     val followersUrl: String,
-    @SerializedName("following_url")
+    @Json(name = "following_url")
     val followingUrl: String,
-    @SerializedName("gists_url")
+    @Json(name = "gists_url")
     val gistsUrl: String,
-    @SerializedName("starred_url")
+    @Json(name = "starred_url")
     val starredUrl: String,
-    @SerializedName("subscriptions_url")
+    @Json(name = "subscriptions_url")
     val subscriptionsUrl: String,
-    @SerializedName("organizations_url")
     val organizationsUrl: String,
-    @SerializedName("repos_url")
+    @Json(name = "repos_url")
     val reposUrl: String,
-    @SerializedName("events_url")
     val eventsUrl: String,
-    @SerializedName("received_events_url")
     val receivedEventsUrl: String,
-    @SerializedName("type")
     val type: String,
-    @SerializedName("site_admin")
     val siteAdmin: Boolean = false
 ) : Parcelable

@@ -20,7 +20,7 @@ val retrofit: Retrofit = Retrofit.Builder()
 
 interface GitHubApiService {
     @GET("users")
-    suspend fun getUser(): List<User>
+    suspend fun getUser() : List<User>
 }
 
 object GitHubApi {

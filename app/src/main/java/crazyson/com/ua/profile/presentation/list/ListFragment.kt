@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import crazyson.com.ua.profile.databinding.FragmentListBinding
 import crazyson.com.ua.profile.presentation.adapters.UserListAdapter
 
@@ -25,6 +24,7 @@ class ListFragment : Fragment() {
     ): View {
         val binding = FragmentListBinding.inflate(inflater)
 
+        binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.rvUsers.adapter = UserListAdapter(UserListAdapter.OnClickListener {
             viewModel.displayUsersDetails(it)
