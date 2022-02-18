@@ -7,10 +7,17 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import crazyson.com.ua.profile.R
 import crazyson.com.ua.profile.presentation.list.GitHubApiStatus
+import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
+import crazyson.com.ua.profile.data.User
 
-annotation class BindingAdapter
+@BindingAdapter("listData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<User>?) {
+    val adapter = recyclerView.adapter as UserListAdapter
+    adapter.submitList(data)
+}
 
-@BindingAdapter
+@BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
@@ -22,8 +29,8 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-@BindingAdapter
-fun bindStatus(statusImageView: ImageView, status: GitHubApiStatus) {
+@BindingAdapter("apiStatus")
+fun bindStatus(statusImageView: ImageView, status: GitHubApiStatus?) {
     when (status) {
         GitHubApiStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE

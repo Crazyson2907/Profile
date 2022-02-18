@@ -14,7 +14,6 @@ import crazyson.com.ua.profile.presentation.adapters.UserListAdapter
 
 class ListFragment : Fragment() {
 
-    private lateinit var adapter : UserListAdapter
     private val viewModel: ListFragmentViewModel by lazy {
         ViewModelProvider(this)[ListFragmentViewModel::class.java]
     }
@@ -26,8 +25,7 @@ class ListFragment : Fragment() {
     ): View {
         val binding = FragmentListBinding.inflate(inflater)
 
-        binding.rvUsers.layoutManager = LinearLayoutManager(context)
-        binding.rvUsers.setHasFixedSize(true)
+        binding.viewModel = viewModel
         binding.rvUsers.adapter = UserListAdapter(UserListAdapter.OnClickListener {
             viewModel.displayUsersDetails(it)
         })

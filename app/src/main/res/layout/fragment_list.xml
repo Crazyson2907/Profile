@@ -7,7 +7,6 @@
         name="viewModel"
         type="crazyson.com.ua.profile.presentation.list.ListFragmentViewModel"/>
     </data>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -30,7 +29,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:marsApiStatus="@{viewModel.status}"/>
+        app:apiStatus="@{viewModel.status}"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
