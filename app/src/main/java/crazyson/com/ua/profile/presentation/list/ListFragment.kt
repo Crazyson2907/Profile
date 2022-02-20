@@ -27,14 +27,14 @@ class ListFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.rvUsers.adapter = UserListAdapter(UserListAdapter.OnClickListener {
-            viewModel.displayUsersDetails(it)
+//            viewModel.displayUsersDetails(it)
         })
 
         viewModel.navigateToSelectedUser.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 this.findNavController().navigate(
                     ListFragmentDirections.actionShowDetails())
-                viewModel.displayUsersDetailsComplete()
+//                viewModel.displayUsersDetailsComplete()
             }
         })
 
