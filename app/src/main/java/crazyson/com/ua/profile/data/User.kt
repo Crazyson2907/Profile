@@ -11,7 +11,7 @@ data class User(
     @Json(name = "id")
     val id: Int,
     val nodeId: String = "",
-    @Json(name = "avatar_url")
+    @Json(name = "img_src")
     val avatarUrl: String,
     @Transient
     val gravatarId: String = "1",

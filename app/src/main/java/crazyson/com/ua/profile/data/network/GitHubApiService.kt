@@ -21,9 +21,9 @@ val retrofit: Retrofit = Retrofit.Builder()
 
 interface GitHubApiService {
     @GET("users")
-    fun getUser() : Call<List<User>>
+    fun getUser(): List<User>
 }
 
 object GitHubApi {
-    val retrofitService : GitHubApiService by lazy { retrofit.create(GitHubApiService::class.java) }
+    val retrofitService: GitHubApiService by lazy { retrofit.create(GitHubApiService::class.java) }
 }

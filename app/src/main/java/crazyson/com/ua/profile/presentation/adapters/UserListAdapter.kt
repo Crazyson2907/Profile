@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import crazyson.com.ua.profile.data.User
 import crazyson.com.ua.profile.databinding.ItemUserBinding
 
-class UserListAdapter(private val onClickListener: OnClickListener) : ListAdapter<User, UserListAdapter.UserViewHolder>(DiffCallback) {
+class UserListAdapter(private val onClickListener: OnClickListener) :
+    ListAdapter<User, UserListAdapter.UserViewHolder>(DiffCallback) {
 
-    class UserViewHolder(private var binding: ItemUserBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: User){
+    class UserViewHolder(private var binding: ItemUserBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(user: User) {
             binding.user = user
             binding.executePendingBindings()
         }

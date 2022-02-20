@@ -24,7 +24,8 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         Glide.with(imgView.context)
             .load(imgUri)
             .apply(
-                RequestOptions())
+                RequestOptions()
+            )
             .into(imgView)
     }
 }

@@ -1,52 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="40dp"
-        android:contentDescription="@string/details_avatar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        <variable
+            name="viewModel"
+            type="crazyson.com.ua.profile.presentation.details.DetailsViewModel" />
+    </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:layout_marginTop="40dp">
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar_image"
+            imageUrl="@{viewModel.displayUserImage"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/details_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_repos"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.displayUserName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatar_image" />
 
         <TextView
-            android:id="@+id/tv_gists"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="10dp"/>
+            android:id="@+id/tv_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.displayUserLink}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
-        <TextView
-            android:id="@+id/tv_followers"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"/>
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_link">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_repos"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:text="@{viewModel.displayUserRepos}" />
+
+            <TextView
+                android:id="@+id/tv_gists"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:text="@{viewModel.displayUserGists}" />
+
+            <TextView
+                android:id="@+id/tv_followers"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:text="@{viewModel.displayUserFollowers}" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

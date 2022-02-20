@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="crazyson.com.ua.profile.presentation.list.ListFragment"
-        android:label="ListFragment" >
+        android:label="ListFragment">
         <action
             android:id="@+id/action_showDetails"
             app:destination="@id/detailsFragment" />
@@ -15,5 +15,11 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="crazyson.com.ua.profile.presentation.details.DetailsFragment"
-        android:label="DetailsFragment" />
+        android:label="DetailsFragment">
+
+        <argument
+            android:name="selectedUser"
+            app:argType="crazyson.com.ua.profile.data.User" />
+
+    </fragment>
 </navigation>
