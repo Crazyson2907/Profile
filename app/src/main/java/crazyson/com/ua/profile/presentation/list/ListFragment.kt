@@ -23,17 +23,19 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentListBinding.inflate(inflater)
-
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
-        binding.rvUsers.adapter = UserListAdapter(UserListAdapter.OnClickListener {
+        binding.apply {
+            binding.viewModel = viewModel
+            binding.rvUsers.adapter = UserListAdapter(UserListAdapter.OnClickListener {
 //            viewModel.displayUsersDetails(it)
-        })
+            })
+        }
 
         viewModel.navigateToSelectedUser.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 this.findNavController().navigate(
-                    ListFragmentDirections.actionShowDetails())
+                    ListFragmentDirections.actionShowDetails()
+                )
 //                viewModel.displayUsersDetailsComplete()
             }
         })
