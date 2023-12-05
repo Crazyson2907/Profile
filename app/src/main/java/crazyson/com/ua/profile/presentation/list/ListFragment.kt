@@ -13,7 +13,7 @@ import crazyson.com.ua.profile.presentation.adapters.UserListAdapter
 
 class ListFragment : Fragment() {
 
-    private val viewModel: ListFragmentViewModel by lazy {
+    private val viewmodel: ListFragmentViewModel by lazy {
         ViewModelProvider(this).get(ListFragmentViewModel::class.java)
     }
 
@@ -25,18 +25,18 @@ class ListFragment : Fragment() {
         val binding = FragmentListBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.apply {
-            binding.viewModel = viewModel
+            binding.viewModel = viewmodel
             binding.rvUsers.adapter = UserListAdapter(UserListAdapter.OnClickListener {
                 viewModel?.displayUsersDetails(it)
             })
         }
 
-        viewModel.navigateToSelectedUser.observe(viewLifecycleOwner, Observer {
+        viewmodel.navigateToSelectedUser.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 this.findNavController().navigate(
                     ListFragmentDirections.actionShowDetails(it)
                 )
-                viewModel.displayUsersDetailsComplete()
+                viewmodel.displayUsersDetailsComplete()
             }
         })
 
